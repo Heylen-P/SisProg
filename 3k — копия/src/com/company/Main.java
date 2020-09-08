@@ -9,7 +9,7 @@ public class Main {
         String str = new String();
         ArrayList<String> wrd = new ArrayList<String>();
 
-        try(FileReader reader = new FileReader("file1.txt"))
+        try(FileReader reader = new FileReader("Fitzgerald Francis. The Great Gatsby - BooksCafe.Net.txt"))
         {
             // читаем посимвольно
             int c;
@@ -32,12 +32,13 @@ public class Main {
         }
         System.out.println(wrd);
 
+        ArrayList<String> stt = new ArrayList<String>();
         for (int i = 0; i < wrd.size(); i++){
              char[] Arr = wrd.get(i).toCharArray();
             for ( int j = 1; j < Arr.length; j++){
                 if(Arr[j] != 'a' && Arr[j] != 'o'&& Arr[j] != 'i' && Arr[j] != 'e' && Arr[j] != 'u') {
-                    if (Arr[j] == Arr[j - 1]) {
-
+                    if ((Arr[j] == Arr[j - 1]) && (!stt.contains(wrd.get(i)))) {
+                        stt.add(wrd.get(i));
                         System.out.println(wrd.get(i));
                         break;
                     }
